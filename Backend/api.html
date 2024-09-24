@@ -1,0 +1,120 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: module api</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head><body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong>api</strong></big></big></font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/Users/bensherrick/team-team-d/Backend/api.py">/Users/bensherrick/team-team-d/Backend/api.py</a></font></td></tr></table>
+    <p><tt>api.py<br>
+&nbsp;<br>
+Python&nbsp;API&nbsp;for&nbsp;team-d:<br>
+For&nbsp;CS257&nbsp;W24<br>
+&nbsp;<br>
+Ethan&nbsp;Cline-Cole,&nbsp;Ben&nbsp;Sherrick,&nbsp;Harry&nbsp;Xun</tt></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#aa55cc">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Modules</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="csv.html">csv</a><br>
+</td><td width="25%" valign=top><a href="psycopg2.html">psycopg2</a><br>
+</td><td width="25%" valign=top><a href="random.html">random</a><br>
+</td><td width="25%" valign=top></td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ee77aa">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Classes</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#ee77aa"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl>
+<dt><font face="helvetica, arial"><a href="builtins.html#object">builtins.object</a>
+</font></dt><dd>
+<dl>
+<dt><font face="helvetica, arial"><a href="api.html#NamesAPI">NamesAPI</a>
+</font></dt></dl>
+</dd>
+</dl>
+ <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="NamesAPI">class <strong>NamesAPI</strong></a>(<a href="builtins.html#object">builtins.object</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt><a href="#NamesAPI">NamesAPI</a>()&nbsp;-&amp;gt;&nbsp;None<br>
+&nbsp;<br>
+<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%">Methods defined here:<br>
+<dl><dt><a name="NamesAPI-Get_Most_Used_Year_Of"><strong>Get_Most_Used_Year_Of</strong></a>(self, name)</dt><dd><tt>This&nbsp;function&nbsp;returns&nbsp;the&nbsp;year&nbsp;when&nbsp;the&nbsp;input&nbsp;name&nbsp;is&nbsp;most&nbsp;commonly&nbsp;used.<br>
+If&nbsp;the&nbsp;name&nbsp;does&nbsp;not&nbsp;exist&nbsp;in&nbsp;the&nbsp;database,&nbsp;return&nbsp;“Uncommon&nbsp;name”</tt></dd></dl>
+
+<dl><dt><a name="NamesAPI-__init__"><strong>__init__</strong></a>(self) -&gt; None</dt><dd><tt>makes&nbsp;connection&nbsp;and&nbsp;cursor&nbsp;for&nbsp;queries</tt></dd></dl>
+
+<dl><dt><a name="NamesAPI-close"><strong>close</strong></a>(self) -&gt; None</dt><dd><tt>Closes&nbsp;cursor&nbsp;and&nbsp;connection&nbsp;to&nbsp;queries</tt></dd></dl>
+
+<dl><dt><a name="NamesAPI-generate_name_from"><strong>generate_name_from</strong></a>(self, lower_bound_year, upper_bound_year, lower_bound_popularity, upper_bound_popularity)</dt><dd><tt>For&nbsp;the&nbsp;given&nbsp;year,&nbsp;the&nbsp;function&nbsp;will&nbsp;give&nbsp;all&nbsp;names&nbsp;with&nbsp;popularity&nbsp;between&nbsp;the&nbsp;lower_bound_popularity&nbsp;and&nbsp;the&nbsp;upper_bound_popularity.<br>
+If&nbsp;the&nbsp;year&nbsp;is&nbsp;not&nbsp;between&nbsp;1880-2022,&nbsp;return&nbsp;“Invalid&nbsp;year.&nbsp;Database&nbsp;ranges&nbsp;from&nbsp;1880-2022”<br>
+If&nbsp;lower_bound_popularity&nbsp;is&nbsp;negative&nbsp;or&nbsp;upper_bound_popularity&nbsp;is&nbsp;negative&nbsp;or&nbsp;lower_bound_popularity&nbsp;is&nbsp;higher&nbsp;than&nbsp;upper_bound_popularity,&nbsp;return&nbsp;“Wrong&nbsp;input:&nbsp;invalid&nbsp;popularity.”<br>
+If&nbsp;there&nbsp;is&nbsp;no&nbsp;name&nbsp;between&nbsp;the&nbsp;given&nbsp;popularity,&nbsp;return&nbsp;“Sorry,&nbsp;there&nbsp;is&nbsp;no&nbsp;name&nbsp;between&nbsp;your&nbsp;given&nbsp;popularities&nbsp;in&nbsp;that&nbsp;year.”</tt></dd></dl>
+
+<dl><dt><a name="NamesAPI-generate_name_from_partial"><strong>generate_name_from_partial</strong></a>(self, partial: str)</dt><dd><tt>Returns&nbsp;the&nbsp;complete&nbsp;list&nbsp;of&nbsp;names&nbsp;that&nbsp;contain&nbsp;the&nbsp;string&nbsp;partial&nbsp;within&nbsp;the&nbsp;name.<br>
+If&nbsp;partial&nbsp;does&nbsp;not&nbsp;exist&nbsp;in&nbsp;any&nbsp;names&nbsp;in&nbsp;the&nbsp;database,&nbsp;return&nbsp;“No&nbsp;names&nbsp;containing&nbsp;your&nbsp;string&nbsp;exist”</tt></dd></dl>
+
+<dl><dt><a name="NamesAPI-get_close_name"><strong>get_close_name</strong></a>(self, name, year)</dt><dd><tt>Returns&nbsp;a&nbsp;name&nbsp;that&nbsp;is&nbsp;close&nbsp;in&nbsp;popularity&nbsp;to&nbsp;the&nbsp;given&nbsp;name&nbsp;in&nbsp;the&nbsp;specified&nbsp;year,<br>
+ensuring&nbsp;it&nbsp;is&nbsp;different&nbsp;from&nbsp;the&nbsp;input&nbsp;name.</tt></dd></dl>
+
+<dl><dt><a name="NamesAPI-get_popularity_of"><strong>get_popularity_of</strong></a>(self, name, year) -&gt; int</dt><dd><tt>For&nbsp;any&nbsp;given&nbsp;string&nbsp;name&nbsp;and&nbsp;given&nbsp;year,&nbsp;the&nbsp;function&nbsp;will&nbsp;return&nbsp;the&nbsp;count&nbsp;of&nbsp;<br>
+people&nbsp;using&nbsp;that&nbsp;name&nbsp;in&nbsp;that&nbsp;year.<br>
+If&nbsp;the&nbsp;year&nbsp;is&nbsp;not&nbsp;between&nbsp;1880-2022,&nbsp;return&nbsp;“-1"<br>
+If&nbsp;the&nbsp;name&nbsp;does&nbsp;not&nbsp;exist&nbsp;in&nbsp;the&nbsp;database,&nbsp;returns&nbsp;0<br>
+Returns&nbsp;total&nbsp;for&nbsp;male&nbsp;and&nbsp;female</tt></dd></dl>
+
+<dl><dt><a name="NamesAPI-get_random_year_of_name"><strong>get_random_year_of_name</strong></a>(self, name) -&gt; int</dt><dd><tt>Returns&nbsp;a&nbsp;random&nbsp;year&nbsp;in&nbsp;which&nbsp;the&nbsp;given&nbsp;name&nbsp;appears&nbsp;in&nbsp;the&nbsp;database.</tt></dd></dl>
+
+<dl><dt><a name="NamesAPI-get_sex_ratio"><strong>get_sex_ratio</strong></a>(self, name, year) -&gt; float</dt><dd><tt>For&nbsp;any&nbsp;given&nbsp;string&nbsp;name,&nbsp;int&nbsp;year,&nbsp;and&nbsp;string&nbsp;sex,&nbsp;return&nbsp;a&nbsp;float&nbsp;percentage&nbsp;of&nbsp;people&nbsp;from&nbsp;the&nbsp;year&nbsp;that&nbsp;had&nbsp;the&nbsp;name&nbsp;‘name’&nbsp;who&nbsp;are&nbsp;male&nbsp;-&gt;&nbsp;0.0&nbsp;(only&nbsp;female)&nbsp;-&gt;&nbsp;1.0&nbsp;(only&nbsp;male)<br>
+If&nbsp;the&nbsp;year&nbsp;is&nbsp;not&nbsp;between&nbsp;1880-2022,&nbsp;return&nbsp;“Invalid&nbsp;year.&nbsp;Database&nbsp;ranges&nbsp;from&nbsp;1880-2022”<br>
+If&nbsp;the&nbsp;name&nbsp;does&nbsp;not&nbsp;exist&nbsp;in&nbsp;the&nbsp;database,&nbsp;return&nbsp;“Name&nbsp;does&nbsp;not&nbsp;exist&nbsp;in&nbsp;database”</tt></dd></dl>
+
+<dl><dt><a name="NamesAPI-get_total_names_count"><strong>get_total_names_count</strong></a>(self, year)</dt><dd><tt>Returns&nbsp;the&nbsp;total&nbsp;number&nbsp;of&nbsp;names&nbsp;in&nbsp;the&nbsp;database&nbsp;for&nbsp;a&nbsp;given&nbsp;year.</tt></dd></dl>
+
+<dl><dt><a name="NamesAPI-validate_input_name"><strong>validate_input_name</strong></a>(self, name: str) -&gt; bool</dt><dd><tt>Checks&nbsp;if&nbsp;the&nbsp;input&nbsp;name&nbsp;exists&nbsp;within&nbsp;the&nbsp;database.<br>
+&nbsp;<br>
+Parameters:<br>
+-&nbsp;name:&nbsp;The&nbsp;name&nbsp;to&nbsp;be&nbsp;checked.<br>
+&nbsp;<br>
+Returns:<br>
+-&nbsp;True&nbsp;if&nbsp;the&nbsp;name&nbsp;exists&nbsp;in&nbsp;the&nbsp;database,&nbsp;False&nbsp;otherwise.</tt></dd></dl>
+
+<dl><dt><a name="NamesAPI-validate_input_year"><strong>validate_input_year</strong></a>(self, year, lower_bound_popularity, upper_bound_popularity) -&gt; bool</dt><dd><tt>Validates&nbsp;the&nbsp;input&nbsp;parameters&nbsp;for&nbsp;the&nbsp;generate_name_from&nbsp;function.<br>
+&nbsp;<br>
+Parameters:<br>
+-&nbsp;year:&nbsp;The&nbsp;year&nbsp;for&nbsp;which&nbsp;names&nbsp;are&nbsp;being&nbsp;generated.<br>
+-&nbsp;lower_bound_popularity:&nbsp;The&nbsp;lower&nbsp;bound&nbsp;popularity&nbsp;for&nbsp;filtering&nbsp;names.<br>
+-&nbsp;upper_bound_popularity:&nbsp;The&nbsp;upper&nbsp;bound&nbsp;popularity&nbsp;for&nbsp;filtering&nbsp;names.<br>
+&nbsp;<br>
+Returns:<br>
+-&nbsp;True&nbsp;if&nbsp;input&nbsp;is&nbsp;valid,&nbsp;False&nbsp;otherwise.</tt></dd></dl>
+
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>connection</strong> = []</dl>
+
+<dl><dt><strong>cursor</strong> = []</dl>
+
+</td></tr></table></td></tr></table>
+</body></html>
