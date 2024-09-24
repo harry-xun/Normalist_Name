@@ -1,0 +1,211 @@
+body {
+    margin-top: 0;
+    margin-left: 10%;
+    margin-right: 10%;
+    background-color: #fffffc;
+    font-family: 'Ariel', serif;
+    color: #0D1321;
+}
+
+h1 {
+    font-size: 3em;
+    margin-left: -15%;
+    margin-right: -15%;
+    line-height: 1.4;
+    color: #82D173;
+    padding-top: 5%;
+    background-color: #0D1321;
+    text-align: center;
+}
+.headerLink{
+    text-decoration: none;
+}
+
+
+h2 {
+    line-height: 2;
+    text-align: center;
+    background-color: #82D173;
+    border-radius: 5px;
+}
+
+h3 {
+    font-size: .85em;
+    font-weight: 200;
+    font-family: 'Ariel', sans-serif;
+    line-height: 0.25;
+    margin-bottom: 4%;
+}
+
+nav {
+    margin-top: -30px;
+    margin-bottom: -5px;
+    display: flex;
+    justify-content: stretch;
+}
+
+.navItem {
+    display: flex;
+    justify-content: stretch;
+    flex-grow: 1;
+    background: #eaeadf;
+    border:2px solid #0D1321;
+    margin-left: 2px;
+    margin-right: 2px;
+    text-align: center;
+    text-decoration: none;
+    color: #0D1321;
+}
+
+div.Subsection {
+    background-color: #eaeadf;
+    border-radius: 10px;
+    border: 15px solid #0D1321;
+    margin: 10px;
+    padding: 10px;
+    padding-bottom: 25px;
+    margin-left: 15%;
+    margin-right: 15%;
+    border-radius: 2;
+    border: #0D1321;
+}
+
+div.Main {
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+div.NameHolder {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    max-width: 100%;
+    margin: 1.5%;
+    border-radius: 25px;
+    background-color: #eaeadf;
+}
+
+div.NameBox {
+    text-align: center;
+    background-color: #0D1321;
+    min-width: 100px;
+    border-radius: 20px;
+    padding: 1.5%;
+    margin: 1%;
+    color: #fffffc;
+}
+
+div.SectionContainer {
+    display: flex;
+    justify-content: stretch;
+    column-gap: 10px;
+}
+
+.button {
+    border-radius: 20px;
+    padding: 1%;
+    border: none;
+    background-color: #0D1321;
+    color: #82D173;
+}
+
+.Grower {
+    flex-grow: 1;
+}
+
+.Tall {
+    font-size: 1.1em;
+    margin: 5;
+    padding: 15;
+    min-width: 230px;
+    padding-left: 30;
+    padding-right: 30;
+}
+
+.Centered {
+    display: flex;
+    justify-content: center;
+}
+
+input[type=text] {
+    border-color: #0D1321;
+
+    padding: 10px;
+    border-radius: 10px;
+}
+
+input:focus, button:focus {
+    outline-color: #82D173;
+}
+
+input[type=range]{
+    -webkit-appearance: none;
+    appearance: none;
+    height: 4px;
+    max-width: 250px;
+    min-width: 0px;
+    position: absolute;
+    background-color: #2c364c;
+    pointer-events: none;
+}
+
+
+input[type=range]::-webkit-slider-thumb{
+    -webkit-appearance: none;
+    appearance: none;
+    pointer-events: all;
+    cursor: pointer;
+    border-radius: 50%;
+    width: 15px;
+    height: 15px;
+    background-color: #82D173;
+    box-shadow: 0 0 0 1px #0D1321;
+}
+
+#yearSliderUpper, #popularitySliderUpper {
+    background-color:#ffffff00;
+}
+    
+
+input[type=number]{
+    max-width: 70px;
+    border: 1px solid #0D1321;
+}
+
+input[type=range]::-webkit-slider-thumb:hover{
+    border: 1px solid #0D1321;
+}
+.hiddenLabel{
+    font-size: 0em;
+    max-height: 1px;
+    max-width: 1px;
+    overflow: hidden;
+}
+
+.sliderContainer {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin: 2% auto;
+}
+
+.rangeContainer {
+    position: relative;
+    min-height: 50px;
+}
+
+.numberBoxContainer{
+    margin-top: -30px;
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+}
+
+.ShiftedBox{
+    margin-left: 150px;
+}
+
+.namesContainer {
+    display: flex;
+    justify-content: space-around;
+}
