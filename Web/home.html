@@ -1,0 +1,81 @@
+<html lang="en">
+<head>
+    <title> The Normalist Name </title>
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+    <div class="topBar"><h1> The Normalist Name. </h1></div>
+    <script src="rangeBar.js"></script>
+<nav>
+    <a class="navItem" href="about.html">About the Data</a>
+    <a class="navItem">Credits</a>
+    <a class="navItem">Dark Mode</a>
+</nav>
+
+<div class="Subsection">
+    <h2> Search Name</h2>
+    <h3>Enter a first name to get data on usage over time. </h3>
+    <div class="SectionContainer">
+        <label for="searchName" class="hiddenLabel"> Search Name</label>
+        <input id="searchName" class="Grower" type="text" placeholder="Search Name...">
+        <button type="submit"> Search </button>
+    </div>
+    
+</div>
+<!-- Dual Range slider refrencing: https://medium.com/@predragdavidovic10/native-dual-range-slider-html-css-javascript-91e778134816-->
+<div class="Subsection">
+    <h2> Generate Names</h2>
+    <h3>Randomly generate list of names that fit year and popularity parameters </h3>
+    <div class="SectionContainer">
+        <div>
+            <label for="amountBox">Amount</label>
+            <input type="number" id="amountBox" value="5" min="0", max="100"></div>
+        <div>
+            <div>Year</div>
+            <div class="sliderContainer">
+                <div class="rangeContainer">
+                    <label for="yearSliderLower" class="hiddenLabel">Year Lower Bound Slider Handle</label>
+                    <input type="range" id="yearSliderLower" value="1950" max="2022" min="1920">
+                    <label for="yearSliderUpper" class="hiddenLabel">Year Upper Bound Slider Handle</label>
+                    <input type="range" id="yearSliderUpper" value="1980" max="2022" min="1920">
+                </div>
+                <div class="numberBoxContainer">
+                    <label for="yearBoxLower" class="hiddenLabel">Year text box Lower</label>
+                    <input type="number" id="yearBoxLower" value="1950">
+                    <label for="yearBoxUpper" class="hiddenLabel">Year text box Upper</label>
+                    <input type="number" id="yearBoxUpper" value="1980">
+                </div>
+            </div>
+        </div>
+        <div>
+            <div>Popularity</div>
+            <div class="sliderContainer">
+                <div class="rangeContainer">
+                    <label for="popularitySliderLower" class="hiddenLabel">popularity Lower Bound Slider Handle</label>
+                    <input type="range" id="popularitySliderLower" value="2000" max="10000" min="5">
+                    <label for="popularitySliderUpper" class="hiddenLabel">popularity Upper Bound Slider Handle</label>
+                    <input type="range" id="popularitySliderUpper" value="5000" max="10000" min="5">
+                </div>
+                <div class="numberBoxContainer">
+                    <label for="popularityBoxLower" class="hiddenLabel">popularity text box Lower</label>
+                    <input type="number" id="popularityBoxLower" value="2000">
+                    <label for="popularityBoxUpper" class="hiddenLabel">popularity text box Upper</label>
+                    <input type="number" id="popularityBoxUpper" value="5000">
+                </div>
+            </div>
+        </div>
+    <button class="Button" type="submit"> Generate </button>
+    </div>
+</div>
+<div class="Subsection">
+    <h2> Name Game </h2>
+    <h3> Play the Name game</h3>
+    <div class="Centered">
+        <button class="Button Tall" type="submit"> Play</button>
+    </div>
+   
+</div>
+</body>
+</html>

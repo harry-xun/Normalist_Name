@@ -1,0 +1,32 @@
+<html lang="en">
+<head>
+    <title> Search- The Normalist Name </title>
+    <link rel="{{ url_for('static', filename='style.css') }}" href="style.css">
+
+</head>
+
+<body>
+    <div class="topBar"><h1> The Normalist Name. </h1></div>
+<nav>
+    <a class="navItem" href="about.html">About the Data</a>
+    <a class="navItem">Credits</a>
+    <a class="navItem">Dark Mode</a>
+</nav>
+<div class="Subsection">
+    <h2> Search Name</h2>
+    <h3>Enter a first name to get data on usage over time. </h3>
+    <div class="SectionContainer">
+        <label for="searchName" class="hiddenLabel"> Search Name</label>
+        <input id="searchName" class="Grower" type="text" placeholder="Search Name...">
+        <button type="submit"> Search </button>
+    </div>
+    
+</div>
+
+<div class ="Subsection">
+    <div>Usage over Time</div>
+    <!-- Just stick the years in this div-->
+    <div id="amountPerYear"></div>
+    <!-- Same with Sex Ratio values-->
+    <div id="sexRatio"></div>
+</div>
