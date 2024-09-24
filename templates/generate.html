@@ -1,0 +1,69 @@
+<html lang="en">
+<head>
+    <title>Generate Names</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script>
+        function updateInputValue(sliderId, inputId) {
+            var slider = document.getElementById(sliderId);
+            var input = document.getElementById(inputId);
+            input.value = slider.value;
+        }
+    </script>
+</head>
+<body>
+    <a class="headerLink" href="/"> <h1>The Normalist Name.</h1> </a>
+    <nav>
+        <a class="navItem" href="about">About the Data</a>
+    </nav>
+    <div class="Main Subsection">
+        <h2>Generate Names</h2>
+        <form method="post" action="{{url_for('generate')}}">
+            <div>
+                Name Count:
+                <label class="hiddenLabel" for="nameCountSlider">How many Names to generate</label>
+                <input type="range" id="nameCountSlider" name="name_count" min="1" max="300" value="{{ name_count }}" oninput="updateInputValue('nameCountSlider', 'nameCountInput')">
+                <label class="hiddenLabel" for="nameCountInput">Input Box for Name count</label>
+                <input type="number" class="ShiftedBox" id="nameCountInput" name="name_count" value="{{ name_count }}" min="1" max="300" oninput="updateInputValue('nameCountInput', 'nameCountSlider')">
+            </div>
+            <div>
+                Lower Bound Year: 
+                <label class="hiddenLabel" for="lowerYearSlider"> Slider For year lower bound</label>
+                <input type="range" id="lowerYearSlider" name="lower_bound_year" min="1880" max="2022" value="{{ lower_bound_year }}" oninput="updateInputValue('lowerYearSlider', 'lowerYearInput')">
+                <label class="hiddenLabel" for="lowerYearInput"> Box for year lower bound</label>
+                <input type="number" class="ShiftedBox" id="lowerYearInput" name="lower_bound_year" value="{{ lower_bound_year }}" min="1880" max="2022" oninput="updateInputValue('lowerYearInput', 'lowerYearSlider')">
+            </div>
+            <div>
+                Upper Bound Year:
+                <label class="hiddenLabel" for="upperYearSlider"> Slider for year upper bound</label>
+                <input type="range" id="upperYearSlider" name="upper_bound_year" min="1880" max="2022" value="{{ upper_bound_year }}" oninput="updateInputValue('upperYearSlider', 'upperYearInput')">
+                <label class="hiddenLabel" for="upperYearInput"> Input for upper year</label>
+                <input type="number" class="ShiftedBox" id="upperYearInput" name="upper_bound_year" value="{{ upper_bound_year }}" min="1880" max="2022" oninput="updateInputValue('upperYearInput', 'upperYearSlider')">
+            </div>
+            <div>
+                Lower Bound Popularity: 
+                <label class="hiddenLabel" for="lowerPopularitySlider"> Slider for lower bound Popularity</label>
+                <input type="range" id="lowerPopularitySlider" name="lower_bound_popularity" min="1" max="1000" value="{{ lower_bound_popularity }}" oninput="updateInputValue('lowerPopularitySlider', 'lowerPopularityInput')">
+                <label class="hiddenLabel" for="lowerPopularityInput"> Input for lower bound Popularity</label>
+                <input type="number" class="ShiftedBox" id="lowerPopularityInput" name="lower_bound_popularity" value="{{ lower_bound_popularity }}" min="1" max="1000" oninput="updateInputValue('lowerPopularityInput', 'lowerPopularitySlider')">
+            </div>
+            <div>
+                Upper Bound Popularity: 
+                <label class="hiddenLabel" for="upperPopularitySlider"> Input for upper bound popularity</label>
+                <input type="range" id="upperPopularitySlider" name="upper_bound_popularity" min="1" max="1000" value="{{ upper_bound_popularity }}" oninput="updateInputValue('upperPopularitySlider', 'upperPopularityInput')">
+                <label class="hiddenLabel" for="upperPopularityInput"> Input for upper popularity</label>
+                <input type="number" class="ShiftedBox" id="upperPopularityInput" name="upper_bound_popularity" value="{{ upper_bound_popularity }}" min="1" max="1000" oninput="updateInputValue('upperPopularityInput', 'upperPopularitySlider')">
+            </div>
+            <div>
+                (1-10 would return the 10 most popular names from given years)
+            </div>
+            <button class="Button" type="submit">Generate</button>
+        </form>
+        
+        <div class="NameHolder">
+            {% for name in names %}
+            <form action="{{ url_for('search', name=name) }}" method="get">
+                <button type="submit" class="Button Tall">{{ name }}</button>
+            </form>
+            {% endfor %}
+        </div>
+        <div class

@@ -1,0 +1,47 @@
+<html lang="en">
+<head>
+    <title> The Normalist Name </title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+    <div class="topBar"><h1> The Normalist Name. </h1></div>
+    <script src="{{ url_for('static', filename='rangeBar.js') }}"></script>
+    <script src="{{ url_for('static', filename='searchbar.js') }}"></script>
+<nav>
+    <a class="navItem" href="about">About the Data</a>
+</nav>
+
+<div class="Subsection">
+    <h2> Search Name</h2>
+    <h3>Enter a first name to get data on usage over time. </h3>
+    <form id="searchForm" method="GET" onsubmit="submitSearchForm(); return false;">
+            <div class="SectionContainer">
+                <label for="searchName" class="hiddenLabel">Search Name</label>
+                <input id="searchName" class="Grower" type="text" placeholder="Search Name..." required>
+                <button type="submit">Search</button>
+            </div>
+    </form>
+</div>
+<!-- Dual Range slider refrencing: https://medium.com/@predragdavidovic10/native-dual-range-slider-html-css-javascript-91e778134816-->
+<div class="Subsection">
+    <h2> Generate Names</h2>
+    <h3>Randomly generate list of names that fit year and popularity parameters </h3>
+    <form method="post" action="/generate">
+        <div class="Centered">
+            <button class="Button Tall" type="submit"> Generate </button>
+        </div>
+    </form>
+</div>
+<div class="Subsection">
+    <h2> Name Game </h2>
+    <h3> Play the Name game</h3>
+    <form method="get" action="/game">
+        <div class="Centered">
+            <button class="Button Tall" type="submit"> Play</button>
+        </div>
+    </form>
+</div>
+</body>
+</html>

@@ -1,0 +1,84 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Name - The Normalist Name</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <!-- Include Chart.js library -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <a class="headerLink" href="/"> <h1>The Normalist Name.</h1> </a>
+    <nav>
+        <a class="navItem" href="/about">About the Data</a>
+    </nav>
+    <div class="Subsection">
+        <h2>Popularity and Gender of {{ name }}</h2>
+        <div>
+            <!-- Canvas element for chart -->
+            <canvas id="usageChart" width="800" height="400"></canvas>
+        </div>
+        <div>
+            {% set male_data = {} %}
+            {% set female_data = {} %}
+            {% for entry in data %}
+                {% set year = entry[0] %}
+                {% set amount = entry[1] %}
+                {% set sex = entry[2] %}
+                {% if sex == 'M' %}
+                    {% set _ = male_data.update({year: amount}) %}
+                {% else %}
+                    {% set _ = female_data.update({year: amount}) %}
+                {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+    <!-- JavaScript to create chart -->
+    <script>
+        // Chart data
+        var chartData = {
+            labels: [],
+            datasets: [{
+                label: 'Male Usage',
+                data: [],
+                backgroundColor: 'rgba(255, 99, 132, 0.2)', // Red color with opacity
+                borderColor: 'rgba(255, 99, 132, 1)', // Red color
+                borderWidth: 1
+            }, {
+                label: 'Female Usage',
+                data: [],
+                backgroundColor: 'rgba(54, 162, 235, 0.2)', // Blue color with opacity
+                borderColor: 'rgba(54, 162, 235, 1)', // Blue color
+                borderWidth: 1
+            }]
+        };
+
+        // Extract data from the template
+        {% for year, amount in male_data.items() %}
+            chartData.labels.push("{{ year }}");
+            chartData.datasets[0].data.push({{ amount }});
+        {% endfor %}
+
+        {% for year, amount in female_data.items() %}
+            chartData.datasets[1].data.push({{ amount }});
+        {% endfor %}
+
+        // Get canvas element
+        var ctx = document.getElementById('usageChart').getContext('2d');
+
+        // Create chart
+        var usageChart = new Chart(ctx, {
+            type: 'line',
+            data: chartData,
+            options: {
+                responsive: true,
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>

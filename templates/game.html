@@ -1,0 +1,57 @@
+<html lang="en">
+<head>
+    <title>The Name Game</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='gameStyle.css') }}">
+</head>
+<body>
+    <a class="headerLink" href="/"> <h1>The Normalist Name.</h1> </a>
+    <nav>
+        <a class="navItem" href="about">About the Data</a>
+    </nav>
+
+    <div class="Main Subsection">
+        <h2>Click on the More Popular Name!</h2>
+        <p class="description">If you guess it right, you earn 1 score. If you are wrong, it starts a new game.</p>
+        <p class="year">Year: {{ year }}</p>
+        <div class="gameContainer">
+            <form action="{{ url_for('game') }}" method="post" class="gameForm">
+                <div class="namesContainer">
+                    <div class="gamenameBox leftBox" onclick="submitChoice('left')">{{ left_name }}</div>
+                    <div class="gamenameBox rightBox" onclick="submitChoice('right')">{{ right_name }}</div>
+                </div>
+                <input type="hidden" name="choice" id="choice">
+                <input type="hidden" name="score" value="{{ score }}">
+                <input type="hidden" name="left_name" value="{{ left_name }}">
+                <input type="hidden" name="right_name" value="{{ right_name }}">
+                <input type="hidden" name="correct_choice" value="{{ correct_choice }}">
+                <p class="score">Score: {{ score }}</p>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        function submitChoice(choice) {
+            let correctChoice = "{{ correct_choice }}";
+            document.getElementById('choice').value = choice;
+            colorizeChoice(choice);
+            if (choice === correctChoice) {
+                setTimeout(function() {
+                    document.querySelector('.gameForm').submit();
+                }, 1000);
+            }
+            else {
+                setTimeout(function() {
+                    window.location.href = '/game?';
+                }, 1000);
+            }
+        }
+    
+        function colorizeChoice(choice) {
+            let correctChoice = "{{ correct_choice }}";
+            let chosenBox = document.querySelector('.gamenameBox.' + choice + 'Box');
+            chosenBox.style.backgroundColor = choice === correctChoice ? 'green' : 'red';
+        }
+    </script>
+</body>
+</html>
