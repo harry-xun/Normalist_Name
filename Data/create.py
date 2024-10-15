@@ -56,5 +56,5 @@ class NamesAPI:
 if __name__ == '__main__':
     api = NamesAPI()
     api.create_table()  # Creates the table
-    api.load_csv_to_db('ls /Users/xzj/Documents/GitHub/Normalist_Name/Data/all_years.csv')  # Replace with your CSV file path
+    api.load_csv_to_db('/Users/xzj/Documents/GitHub/Normalist_Name/Data/all_years.csv')  # Replace with your CSV file path
     api.close()
